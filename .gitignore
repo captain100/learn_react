@@ -1,3 +1,4 @@
 .vscode/
 .DS_Store
 learn_02/node_modules
+*/node_modules
