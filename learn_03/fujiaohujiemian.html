@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>富交互性用户界面</title>
+	<script src="build/react.js"></script>
+    <script src="build/JSXTransformer.js"></script>
+</head>
+<body>
+	<div id="example"></div>
+	<script type="text/jsx">
+		var LikeButton = React.createClass({
+			getInitialState:function(){
+				return {liked:false}
+			},
+			handleClick:function(e){
+				this.setState({liked:!this.state.liked});
+			},
+			render:function(){
+				var text = this.state.liked ? 'like':'haven\'t liked';
+				return <p onClick={this.handleClick}>you {text} this.Click to toggle.</p>
+			}
+		})
+
+		React.render(<LikeButton />,document.getElementById('example'));
+	</script>
+
+</body>
+</html>
