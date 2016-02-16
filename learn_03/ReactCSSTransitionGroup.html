@@ -2,12 +2,38 @@
 <html>
 <head>
 	<title>ReactCSSTransitionGroup</title>
-	<script type="text/javascript" src="build/react.js"></script>
+
 	<script type="text/javascript" src="build/JSXTransformer.js"></script>
-	<script type="text/javascript" src="react-with-addons.js"></script>
+	<script type="text/javascript" src="build/react-with-addons.js"></script>
+	<style type="text/css">
+		.example-enter{
+			opacity:0.01;
+			font-size: 10px;
+			transition:opacity .5s ease-in;
+		}
+		.example-enter.example-enter-active{
+			opacity:1;
+			color: "#ff11aa";
+			font-size: 100px;
+		}
+
+		.example-leave{
+			opacity:1;
+			color: "#ff11aa";
+			font-size:100px; 
+			transition:opacity .5s ease-in;
+
+		}
+
+		.example-leave.example-leave-active:{
+			opacity:0.01;
+			font-size: 10px;
+		}
+
+	</style>
 </head>
 <body>
-	<div id="example"></div>
+
 	<script type="text/jsx">
 		var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 		var TodoList = React.createClass({
@@ -16,21 +42,39 @@
 			},
 			handleAdd:function(){
 				var newItems = this.state.items.concat([prompt('enter some text')])
-
+				this.setState({
+					items:newItems
+				});
 			},
-			handleRemove:function(){
-
+			handleRemove:function(i){
+				var newItems = this.state.items;
+				newItems.splice(i,1);
+				console.log(newItems);
+				this.setState({items:newItems})
+				console.log(this.state.items)
 			},
 			render:function(){	
 				var items = this.state.items.map(function(item,i){
 					return (
-							<div key={i} onClick={this.handle} >
+							<div key={item} onClick={this.handleRemove.bind(this,i)} >
+								{item}
+							</div>
 						)
 
-				})
+				}.bind(this));
+				return (
+					<div>
+						<button onClick={this.handleAdd}>Add item</button>
+						<ReactCSSTransitionGroup transitionName="example">
+							{items}
+						</ReactCSSTransitionGroup>
+					</div>
+					)
 
 			}
 		})
+		React.render(<TodoList />,document.body)
+
 
 	</script>
 </body>
