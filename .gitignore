@@ -2,3 +2,5 @@
 .DS_Store
 learn_02/node_modules
 */node_modules
+.idea
+webpack_exmaple/node_modules
