@@ -1,0 +1,18 @@
+{
+  "name": "config",
+  "version": "1.0.0",
+  "description": "详细的webpackconfig配置详解",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack -p",
+    "dev": "webpack-dev-server --devtool eval --progress --hot --colors "
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "qiushi",
+  "license": "ISC",
+  "devDependencies": {
+    "path": "^0.12.7",
+    "webpack": "^1.12.15",
+    "webpack-dev-server": "^1.14.1"
+  }
+}

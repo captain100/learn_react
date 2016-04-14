@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>颜色搭配</title>
+	
+	<script src="build/react.js"></script>
+	<script src="build/JSXTransformer.js"></script>
+	<script src="build/react-with-addons.js"></script>
+	<style type="text/css">
+		body{
+			padding: 10px;
+		}
+		.container{
+			border:1px solid #CCC;
+			width: 480px;
+			height: 480px;
+			background: rgba(0,0,0,.1);
+		}
+		.colorBox{
+			width: 48px;
+			height: 48px;
+			padding: 2px;
+
+		}
+		.colorSpan{
+		    border: 1px solid #CCC;
+		    border-radius: 8px;
+		    background: #2f2f00;
+		    width: 100%;
+		    height: 100%;
+		    display: inline-block;
+		}
+	</style>
+	
+</head>
+<body>
+
+
+	<script type="text/jsx">
+	var Item = React.createClass({
+		render:function(){
+			return(
+				<div className="colorBox" >
+					<span className="colorSpan"></span>
+				</div>
+			)
+		}
+	})
+
+	var GameBoard = React.createClass({
+		getInitialState:function(){
+			return {listItems:[]};
+		},
+		handleRandom:function(){
+			var index = Math.floor(Math.random()*10);
+			var arr = [];
+			for (var i = 0; i < index; i++) {
+
+
+			}
+		},
+
+
+		render:function(){
+				
+			
+			return <div className="container">
+				{contain}
+			</div>	
+		}
+	}) 
+	React.render(<GameBoard />, document.body)
+
+
+	</script>
+
+
+</body>
+</html>
